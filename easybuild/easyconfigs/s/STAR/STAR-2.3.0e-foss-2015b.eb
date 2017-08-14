@@ -14,8 +14,8 @@ description = """ STAR aligns RNA-seq reads to a reference genome using
 
 toolchain = {'name': 'foss', 'version': '2015b'}
 
-source_urls = ['https://rna-star.googlecode.com/files/']
-sources = ['%(name)s_%(version)s.zip']
+source_urls = ['https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/rna-star/']
+sources = ['%(name)s_%(version)s.tgz']
 
 patches = ['STAR_missing_includes.patch']
 
