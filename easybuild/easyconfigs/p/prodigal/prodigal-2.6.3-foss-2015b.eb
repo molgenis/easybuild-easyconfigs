@@ -1,0 +1,34 @@
+# Easybuilder for Prodigal
+# By: R.Gacesa (UMCG, 2019)
+# ===============================
+
+easyblock = 'MakeCp'
+
+name = 'prodigal'
+version = '2.6.3'
+homepage = 'http://prodigal.ornl.gov/'
+description = """Prodigal (Prokaryotic Dynamic Programming Genefinding Algorithm) 
+   is a microbial (bacterial and archaeal) gene finding program developed 
+   at Oak Ridge National Laboratory and the University of Tennessee."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+
+source_urls = ['https://github.com/hyattpd/Prodigal/archive/']
+sources = ['v%(version)s.tar.gz']
+
+checksums = [
+   '89094ad4bff5a8a8732d899f31cec350f5a4c27bcbdd12663f87c9d1f0ec599f', # v2.6.3.tar.gz
+]
+
+files_to_copy = [
+    (['prodigal'], 'bin'),
+    (['*.h'], 'include'),
+    (['LICENSE'], 'license'),
+]
+
+sanity_check_paths = {
+    'files': ['bin/prodigal'],
+    'dirs': ['include', 'license'],
+}
+
+moduleclass = 'bio'

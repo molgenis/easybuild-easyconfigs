@@ -1,0 +1,36 @@
+# Easybuild block for FragGeneScan
+# by: R.Gacesa (2019, UMCG)
+# ===================================
+
+easyblock = 'MakeCp'
+
+name = 'FragGeneScan'
+version = '1.31'
+
+homepage = 'https://sourceforge.net/projects/fraggenescan/'
+description = "FragGeneScan is an application for finding (fragmented) genes in short reads."
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+
+source_urls = [SOURCEFORGE_SOURCE]
+sources = ['%(name)s%(version)s.tar.gz']
+
+checksums = ['cd3212d0f148218eb3b17d24fcd1fc897fb9fee9b2c902682edde29f895f426c']
+
+buildopts = 'CC="$CC" CFLAG="$CFLAGS" fgs'
+
+files_to_copy = ['FragGeneScan', 'run_FragGeneScan.pl', 'example', 'train']
+
+modextrapaths = {'PATH': ['']}
+
+postinstallcmds = [ 
+    'for executable in $(ls -1 %(installdir)s/bin/*.{bash,pl,py,R,sh} 2> /dev/null); do chmod 775 ${executable}; done', 
+    'chmod -R g+rwX,o+rX,o-w %(installdir)s/*' 
+] 
+
+sanity_check_paths = {
+    'files': ['FragGeneScan', 'run_FragGeneScan.pl'],
+    'dirs': ['example', 'train'],
+}
+
+moduleclass = 'bio'

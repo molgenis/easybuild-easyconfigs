@@ -1,0 +1,43 @@
+# MaxBin easybuild block
+# by: R.Gacesa (UMCG, 2019)
+# ===============================
+
+easyblock = 'MakeCp'
+
+name = 'MaxBin' 
+version = '2.2.5'
+
+homepage = 'https://sourceforge.net/projects/maxbin2/'
+description = """an automated binning algorithm to recover genomes from multiple metagenomic datasets."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+
+source_urls = [SOURCEFORGE_SOURCE]
+sources = ['%(name)s-%(version)s.tar.gz']
+
+checksums = ['4fb248ec5173ce93055e72d9d806f2037b4e12f10c5c643b5ba7d265bb7c1459']
+
+start_dir = 'src'
+
+dependencies = [
+    ('Bowtie2', '2.3.4.1'),
+    ('HMMER', '3.2.1'),
+    ('IDBA-UD','1.1.3'),
+    ('FragGeneScan','1.31')
+]
+
+# Parallel build tends to fail.
+#parallel = 1
+
+executables = ['MaxBin']
+files_to_copy = [(['%s' % x for x in executables], 'bin')]
+
+#
+# Check if all binaries from the suite are present.
+#
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in executables],
+    'dirs': [],
+}
+
+moduleclass = 'bio'

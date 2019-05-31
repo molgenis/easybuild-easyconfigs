@@ -1,0 +1,30 @@
+# This file is an EasyBuild 
+#  adapted from reciPY as per https://github.com/hpcugent/easybuild
+# By: R.Gacesa (UMCG, 2019)
+
+easyblock = "BinariesTarball"
+
+name = 'tbl2asn'
+version = '25.7'
+
+homepage = 'https://www.ncbi.nlm.nih.gov/genbank/tbl2asn2/' 
+description = """
+Tbl2asn is a command-line program that automates the creation of sequence records for submission to GenBank. It uses many of the same functions as Sequin but is driven generally by data files. Tbl2asn generates .sqn files for submission to GenBank. Additional manual editing is not required before submission
+""" 
+# NOTE: it is an ugly little binary that is distributed by NCBI without versions, source or anything else 
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+source_urls = ['ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/']
+sources = ['linux64.%(name)s.gz']
+
+checksums = ['1f41acb9eacd6e0fa78657b17727b8f94d97490617563686d28b3f6c24d39117'] #  linux64.tbl2asn.gz
+
+dependencies = []
+
+sanity_check_paths = { 
+    'files': ["bin/linux64.tbl2asn" ],
+    'dirs': []
+}
+
+moduleclass = 'bio'
+

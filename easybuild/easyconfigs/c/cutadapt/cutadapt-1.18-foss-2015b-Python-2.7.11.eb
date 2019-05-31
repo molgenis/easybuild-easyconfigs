@@ -1,0 +1,33 @@
+# ==================================
+# cutadapt easybuilder for Python 2.7.11
+# by: R.Gacesa (UMCG,2019)
+# ==================================
+
+easyblock = 'PythonPackage'
+
+name = 'cutadapt'
+version = '1.18'
+versionsuffix = '-Python-2.7.11'
+
+homepage = 'https://github.com/marcelm/cutadapt'
+description = """Cutadapt finds and removes adapter sequences, primers, poly-A tails and
+ other types of unwanted sequence from your high-throughput sequencing reads."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+# https://github.com/marcelm/cutadapt/archive/v1.18.tar.gz
+source_urls = ['https://github.com/marcelm/cutadapt/archive/']
+sources = ['v%(version)s.tar.gz']
+checksums = ['941a3e7ad5f1eab93eedbafd993ccd204f3533264a46c7e9cbc24c4e69441995'] # v.1.18.tar.gz
+
+dependencies = [
+#PythonPlus/2.7.11-foss-2015b-v17.06.1
+    ('PythonPlus', '2.7.11','-v17.06.1'), 
+    ('Cython','0.24.1','-Python-2.7.11'),
+]
+
+sanity_check_paths = {
+    'files': ['bin/cutadapt'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
+}
+
+moduleclass = 'bio'

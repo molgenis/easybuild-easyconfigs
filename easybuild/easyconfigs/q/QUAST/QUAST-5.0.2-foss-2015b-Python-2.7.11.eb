@@ -1,0 +1,45 @@
+# This file is an EasyBuild reciPY as per https://github.com/easybuilders/easybuild
+# By: R.Gacesa (UMCG, 2019)
+
+easyblock = 'PythonPackage'
+
+name = 'QUAST'
+version = '5.0.2'
+versionsuffix = '-Python-2.7.11'
+
+homepage = 'https://github.com/ablab/%(namelower)s'
+description = """QUAST evaluates genome assemblies by computing various metrics.
+ It works both with and without reference genomes. The tool accepts multiple
+ assemblies, thus is suitable for comparison."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+toolchainopts = {'pic': True}
+
+source_urls = ['https://github.com/ablab/%(namelower)s/archive/']
+sources = ['%(namelower)s_%(version)s.tar.gz']
+
+checksums = ['cdb8f83e20cc38f218ff7172b454280fcb1c7e2dff74e1f8618cacc53d46b48e'] #quast-5.0.2.tar.gz
+
+install_target = 'install_full'
+
+dependencies = [
+    ('PythonPlus', '2.7.11','-v17.06.1'),
+    ('PerlPlus','5.26.2' '',('foss-2015b','-v18.05.1')),
+    ('matplotlib', '1.5.1', '-Python-2.7.11'),
+    ('Java', '1.8.0_144', '-unlimited_JCE', ('dummy','')),
+    ('Boost', '1.60.0', '-Python-2.7.11'),
+]
+
+options = {'modulename': '%(namelower)s_libs'}
+
+libraries = ['bedtools', 'bwa', 'ca_utils', 'gage', 'genemark', 'genemark-es', 'glimmer', 'gnuplot', 'html_saver',
+             'kronatools', 'manta0.29.6', 'MUMmer', 'ra_utils', 'sambamba', 'silva']
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s.py', 'bin/meta%(namelower)s.py'],
+    'dirs': [('lib/python%%(pyshortver)s/site-packages/%%(namelower)s-%%(version)s-py%%(pyshortver)s.egg/'
+              '%%(namelower)s_libs/%s') % x for x in libraries]
+}
+
+sanity_check_commands = ['%(namelower)s.py --test']
+
+moduleclass = 'bio'

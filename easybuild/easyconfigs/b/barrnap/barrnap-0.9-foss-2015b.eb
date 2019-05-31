@@ -1,0 +1,34 @@
+# Easybuild for barrnap
+# By: R.Gacesa (UMCG, 2019)
+
+easyblock = 'Binary'
+
+name = 'barrnap'
+version = '0.9'
+
+homepage = 'https://github.com/tseemann/barrnap'
+description = """Barrnap predicts the location of ribosomal RNA genes in genomes. 
+It supports bacteria (5S,23S,16S), archaea (5S,5.8S,23S,16S), 
+metazoan mitochondria (12S,16S) and eukaryotes (5S,5.8S,28S,18S)."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+
+source_urls = ['https://github.com/tseemann/barrnap/archive']
+sources = ['%(version)s.tar.gz']
+checksums = ['36c27cd4350531d98b3b2fb7d294a2d35c15b7365771476456d7873ba33cce15'] # 0.9.tar.gz
+
+dependencies = [
+    ('HMMER', '3.2.1',''),
+    ('BEDTools', '2.27.1',''),
+    ('PerlPlus', '5.26.2','-v18.05.1'),
+]
+
+install_cmd = "tar xfvz %(version)s.tar.gz && "
+install_cmd += "cp -r %(builddir)s/%(name)s-%(version)s/* %(installdir)s"
+
+sanity_check_paths = {
+    'files': ['bin/barrnap'],
+    'dirs': [],
+}
+
+moduleclass = 'bio'

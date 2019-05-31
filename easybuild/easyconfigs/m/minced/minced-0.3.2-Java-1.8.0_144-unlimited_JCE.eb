@@ -1,0 +1,31 @@
+# Easybuild for MINCED
+# by: R.Gacesa (2019, UMCG)
+# ==============================
+
+easyblock = 'MakeCp'
+
+name = 'minced'
+version = '0.3.2'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = "https://github.com/ctSkennerton/minced"
+
+description = """
+MinCED is a program to find Clustered Regularly Interspaced Short Palindromic Repeats (CRISPRs) in full genomes or environmental datasets such as assembled contigs from metagenomes.
+"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+source_urls = ['https://github.com/ctSkennerton/minced/archive']
+sources = ['%(version)s.tar.gz']
+checksums = ['334aee43292d0b657c4849f818ddfb3ac7811eb505502bf24a01d66719084b44'] #  0.3.2.tar.gz
+
+dependencies = [('Java', '1.8.0_144-unlimited_JCE')]
+files_to_copy = [(['minced','minced.jar'],'bin')]
+
+sanity_check_paths = {
+    'dirs': ["bin"],
+    'files': ['bin/minced','bin/minced.jar'],
+}
+
+moduleclass = 'bio'

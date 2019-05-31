@@ -1,0 +1,47 @@
+# Easybuild block for prokka 
+# by R.Gacesa (UMCG, 2019)
+# ==============================
+
+easyblock = 'Tarball'
+
+name = 'prokka'
+version = '1.13.4'
+
+homepage = 'http://www.vicbioinformatics.com/software.prokka.shtml'
+description = """Prokka is a software tool for the rapid annotation of prokaryotic genomes."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+
+source_urls = ['https://github.com/tseemann/prokka/archive/']
+sources = ['v%(version)s.zip']
+
+checksums = ['b5621af689ffb5348eab699a378d45d7566cd63a7da52845229b484af33ea8e2'] #  v1.13.4.zip
+
+dependencies = [('BioPerl','1.6.924','-Perl-5.22.0'),
+                ('BLAST+','2.7.1',''), 
+                ('HMMER','3.2.1', ''),
+                ('parallel','20151222',''), 
+                ('aragorn','1.2.38'), 
+                ('prodigal','2.6.3'),
+                ('tbl2asn','25.7','',('dummy','')),
+                ('Infernal','1.1.2'),
+                ('barrnap','0.9'),
+                ('minced','0.3.2','-Java-1.8.0_144-unlimited_JCE', ('dummy',''))
+               ]
+modextrapaths = {
+    'PATH': '',
+}
+
+bin_files = ['prokka', 'prokka-cdd_to_hmm', 'prokka-genpept_to_fasta_db', 'prokka-tigrfams_to_hmm',
+             'prokka-biocyc_to_fasta_db', 'prokka-clusters_to_hmm', 'prokka-hamap_to_hmm',
+             'prokka-uniprot_to_fasta_db', 'prokka-build_kingdom_dbs', 'prokka-genbank_to_fasta_db',
+             'prokka-make_tarball']
+
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in bin_files] + ['binaries/linux/aragorn', 'db/cm/Bacteria', 'doc/ToDoList.txt'],
+    'dirs': ['bin', 'binaries', 'db',  'db/cm', 'db/genus', 'db/hmm', 'db/kingdom', 'doc'],
+}
+
+modloadmsg = "prokka scripts are located in $EBROOTPROKKA/bin; databases are located in $EBROOTPROKKA/db\n"
+
+moduleclass = 'bio'

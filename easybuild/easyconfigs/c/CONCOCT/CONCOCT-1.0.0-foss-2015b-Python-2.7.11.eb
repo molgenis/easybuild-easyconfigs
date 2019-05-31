@@ -1,0 +1,32 @@
+# CONCOCT easybuild package
+# by: R.Gacesa (2019, UMCG)
+# =========================
+
+easyblock = "PythonPackage"
+
+name = 'CONCOCT'
+version = '1.0.0'
+versionsuffix = '-Python-2.7.11'
+
+homepage = 'https://github.com/BinPro/CONCOCT'
+description = """A program for unsupervised binning of metagenomic contigs by using nucleotide composition, coverage data in multiple samples and linkage data from paired end reads."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+
+source_urls = ['https://github.com/BinPro/CONCOCT/archive/']
+sources = ['%(version)s.tar.gz']
+checksums = ['4428a1d7bce5c7546106bea0a0ff6c2168e3680f6422adce5ef523bce46dc180'] #  1.0.0.tar.gz
+
+
+python = "Python"
+pythonversion = '2.7.1'
+
+# requires: cython numpy scipy biopython pandas pip scikit-learn
+# (most are pre-macked in PythonPlus)
+dependencies = [
+    ('PythonPlus', '2.7.11','-v17.06.1'),
+    ('numpy','1.11.0','-Python-2.7.11'),
+    ('GSL','2.3'),
+]
+
+moduleclass = 'bio'

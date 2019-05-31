@@ -1,0 +1,42 @@
+# ===========================================
+# Megahit installation easybuild block
+# By R.Gacesa (UMCG,2019)
+# ===========================================
+
+easyblock = 'MakeCp'
+
+name = 'megahit'
+version = '1.1.4'
+
+homepage = 'https://github.com/voutcn/megahit'
+description = """MEGAHIT: An ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph"""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+toolchainopts = {'usempi': True}
+
+source_urls = ['https://github.com/voutcn/megahit/archive/']
+sources =[('v%s.tar.gz' % (version))]
+checksums = [
+    'ecd64c8bfa516ef6b19f9b2961ede281ec814db836f1a91953c213c944e1575f',  #v1.1.4.tar.gz
+]
+
+dependencies = [
+   ('zlib', '1.2.11'),
+   ('Python','2.7.11','',('foss','2015b')), 
+]
+
+#DEBUG: Parallel build tends to fail.
+# parallel = 1
+
+# requires megahit, megahit_asm_core, megahit_toolkit and megahit_sdbg_build 
+bm_executables = ['megahit','megahit_asm_core','megahit_toolkit','megahit_sdbg_build']
+
+files_to_copy = [(['%s' % x for x in bm_executables], 'bin')]
+
+# Check if all binaries from the suite are present.
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in bm_executables],
+    'dirs': [],
+}
+
+moduleclass = 'bio'

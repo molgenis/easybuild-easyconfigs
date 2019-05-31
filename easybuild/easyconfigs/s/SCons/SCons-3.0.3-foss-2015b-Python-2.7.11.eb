@@ -1,0 +1,31 @@
+# EB recipie for scons 3.0.3
+# by: R.Gacesa (2019, UMCG)
+# =================================
+
+easyblock = 'PythonPackage'
+
+name = 'SCons'
+version = '3.0.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.scons.org/'
+description = "SCons is a software construction tool."
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+
+source_urls = [SOURCEFORGE_SOURCE]
+sources = [SOURCELOWER_TAR_GZ]
+
+checksums = ['d8ec796b52586e269aec72c40b82289023c9ac9878c328bbf379a046460196f3'] # scons-3.0.3.tar.gz
+
+dependencies = [('Python', '2.7.11')]
+
+sanity_check_paths = {
+    'files': ['bin/scons', 'bin/scons-time', 'bin/sconsign'],
+    'dirs': ['lib/%(namelower)s/%(name)s'],
+}
+
+# no Python module to import during sanity check
+options = {'modulename': False}
+
+moduleclass = 'devel'

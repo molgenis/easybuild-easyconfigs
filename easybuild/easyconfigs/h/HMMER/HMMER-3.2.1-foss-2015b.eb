@@ -1,0 +1,37 @@
+# Easybuild for HMMER
+# By:   R.Gacesa (2019, UMCG)
+# =========================================
+
+easyblock = 'ConfigureMake'
+
+name = 'HMMER'
+version = '3.2.1'
+
+homepage = 'http://hmmer.org/'
+description = """HMMER is used for searching sequence databases for homologs of protein sequences,
+ and for making protein sequence alignments. It implements methods using probabilistic models
+ called profile hidden Markov models (profile HMMs).  Compared to BLAST, FASTA, and other
+ sequence alignment and database search tools based on older scoring methodology,
+ HMMER aims to be significantly more accurate and more able to detect remote homologs
+ because of the strength of its underlying mathematical models. In the past, this strength
+ came at significant computational expense, but in the new HMMER3 project, HMMER is now
+ essentially as fast as BLAST."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+
+source_urls = ['http://eddylab.org/software/hmmer']
+sources = ['hmmer-%(version)s.tar.gz']
+checksums = [
+   'a56129f9d786ec25265774519fc4e736bbc16e4076946dcbd7f2c16efc8e2b9c', # hmmer-3.2.1.tar.gz
+]
+
+installopts = ' && cd easel && make install'
+
+sanity_check_paths = {
+    'files': ["bin/%s" % x for x in ["hmmemit", "hmmsearch", "hmmscan"]],
+    'dirs': []
+}
+
+runtest = 'check'
+
+moduleclass = 'bio'

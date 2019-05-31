@@ -1,3 +1,8 @@
+# Bowtie2 easybuild
+# adapted from previous versions of Bowtie2 easybuild files
+# by: R.Gacesa (2019, UMCG)
+# ===========================================
+
 name = 'Bowtie2'
 version = '2.3.4.1'
 
