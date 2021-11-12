@@ -1,0 +1,32 @@
+easyblock = 'PackedBinary'
+
+name = 'ngs-utils'
+version = '21.11.1'
+
+homepage = 'https://github.com/molgenis/ngs-utils'
+description = """Collection of notes and scripts related to NGS """
+
+toolchain = {'name': 'GCCcore', 'version': '7.3.0'}
+
+#
+# Example URL: https://github.com/molgenis/ngs-utils/releases/download/21.11.1/ngs-utils-21.11.1.zip
+#
+source_urls = [('https://github.com/molgenis/ngs-utils/releases/download/%s/' % (version))]
+sources = [('%s-%s.tar.gz' % (name,version))]
+
+checksums = ['177a71396b7f479fa3def5a65b286e454d410341512ac0e6d24588478c502c78']
+
+dependencies = [ 
+    ('gVCF2BEDPyDepBundle','-3.7.4', '1.0.0'),
+]
+
+postinstallcmds = [
+    'chmod -R 775 %(installdir)s/*.py',
+]
+
+sanity_check_paths = {
+    'files': ['gvcf2bed2.py', 'group_per_gene.py'],
+    'dirs': []
+}
+
+moduleclass = 'bio'

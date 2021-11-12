@@ -18,20 +18,20 @@ builddependencies = [
 ]
 
 dependencies = [
-    ('bzip2', '1.0.6'),
+    ('bzip2', '1.0.8'),
     ('zlib', '1.2.11'),
     ('libreadline', '8.0'),
-    ('ncurses', '6.1'),
-    ('SQLite', '3.29.0'),
-    ('XZ', '5.2.4'),
-    ('GMP', '6.1.2'),     # required for pycrypto
-    ('libffi', '3.2.1'),  # required for cryptography
+    ('ncurses', '6.2'),
+    ('SQLite', '3.34.0'),
+    ('XZ', '5.2.5'),
+    ('GMP', '6.2.1'),   # required for pycrypto
+    ('libffi', '3.3'),  # required for cryptography
     # OS dependency should be preferred if the os version is more recent then this version,
     # it's nice to have an up to date openssl for security reasons
-    # ('OpenSSL', '1.1.0h'),
+    ('OpenSSL', '1.1.1i'),
 ]
 
-osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
+#osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
 
 #
 # Symlink 'pip' command to 'pip3' that is included with Python installation.
@@ -39,6 +39,26 @@ osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
 #
 installopts = " && ln -s %(installdir)s/bin/pip3 %(installdir)s/bin/pip"
 
-exts_list = []
+exts_default_options = {
+    'download_dep_fail': True,
+    'sanity_pip_check': True,
+    'source_urls': [PYPI_SOURCE],
+    'use_pip': True,
+}
+
+#
+# This is a "bare" Python, but do include minimal list of packages required to install other packages.
+#
+exts_list = [
+    ('setuptools', '52.0.0', {
+        'checksums': ['fb3a1ee622509550dbf1d419f241296169d7f09cb1eb5b1736f2f10965932b96'],
+    }),
+    ('wheel', '0.36.2', {
+        'checksums': ['e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e'],
+    }),
+    ('pip', '21.3.1', {
+         'checksums': ['fd11ba3d0fdb4c07fbc5ecbba0b1b719809420f25038f8ee3cd913d3faa3033a'],
+    })
+]
 
 moduleclass = 'lang'
