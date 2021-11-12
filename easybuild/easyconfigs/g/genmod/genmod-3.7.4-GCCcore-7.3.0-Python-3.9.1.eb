@@ -1,0 +1,28 @@
+easyblock = 'PythonPackage'
+
+name = 'genmod'
+version = '3.7.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://moonso.github.io/genmod/'
+description = 'Annotating and analyzing primarily genetic models in the VCF file format.'
+
+toolchain = {'name': 'GCCcore', 'version': '7.3.0'}
+
+exts_defaultclass = 'PythonPackage'
+
+dependencies = [
+    ('Python', '3.9.1', '-bare')
+]
+
+sources = ['%(name)s-%(version)s-GCCcore-7.3.0%(versionsuffix)s-requirements.txt']
+checksums = ['00561862ed4dd2ca3588b643a41c8552f49b2b589d07f48c34daf950c6323081']
+
+pip_ignore_installed = False
+sanity_pip_check = True
+unpack_sources = False
+use_pip = True
+use_pip_for_deps = True
+use_pip_requirement = True
+
+moduleclass = 'bio'

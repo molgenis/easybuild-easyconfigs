@@ -10,6 +10,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 source_urls = ['http://www.freedesktop.org/software/harfbuzz/release/']
 sources = [SOURCELOWER_TAR_BZ2]
+checksums = ['21a78b81cd20cbffdb04b59ac7edfb410e42141869f637ae1d6778e74928d293']
 
 dependencies = [
     ('GLib', '2.52.3'),

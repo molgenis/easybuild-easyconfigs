@@ -1,0 +1,41 @@
+name = 'xhmm'
+version = '2020-01-20-998f7c4'
+hash = '998f7c4'
+
+homepage = 'http://atgu.mgh.harvard.edu/xhmm/index.shtml'
+description = """CNV detection in targeted or exome gene panels."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+easyblock = 'MakeCp'
+
+#
+# Example URL: https://bitbucket.org/statgen/xhmm/get/998f7c4.zip
+# Current version: xhmm-998f7c4
+#
+source_urls = [('https://bitbucket.org/statgen/xhmm/get/')]
+sources = [('%s.zip' % (hash))]
+checksums = [
+   'affa8458ee162e41f6fc22c65f4379ad88a31c4e81f71098c9c51db446bab2eb',
+]
+
+dependencies = [
+    ('R','3.6.1','-bare', ('foss', '2018b')),
+]
+
+files_to_copy = [
+    (['sources/scripts/*'], 'bin/'), 
+    (['build/execs/xhmm'], 'bin/'), 
+    'params.txt', 
+    'README'
+]
+
+postinstallcmds = [
+    'chmod -R g+rwX,o+rX,o-w %(installdir)s/bin/*'
+]
+
+sanity_check_paths = {
+    'files': ['bin/xhmm', 'params.txt', 'README'],
+    'dirs': ['bin']
+}
+
+moduleclass = 'bio'

@@ -18,7 +18,7 @@ sources = [('%s.tar.gz' % (version))]
 checksums = ['b04b8a6cea8c7f0255c8009e2a7ae7e6ecc4d7ba35426273359e26b84fc7eedf']
 
 dependencies = [ 
-    ('RPlus', '3.6.1', '-v19.07.1', ('foss', '2018b')),
+    ('RPlus', '3.6.1', '-v20.10.1', ('foss', '2018b')),
 ]
 
 postinstallcmds = [

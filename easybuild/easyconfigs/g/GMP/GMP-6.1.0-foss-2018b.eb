@@ -12,6 +12,7 @@ toolchainopts = {'pic': True, 'precise': True}
 
 sources = [SOURCELOWER_TAR_BZ2]
 source_urls = ['http://ftp.gnu.org/gnu/gmp']
+checksums = ['86ee6e54ebfc4a90b643a65e402c4048']
 
 builddependencies = [
     ('Autotools', '20150215'),

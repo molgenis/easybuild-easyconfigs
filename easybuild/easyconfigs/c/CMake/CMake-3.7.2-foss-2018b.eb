@@ -28,12 +28,6 @@ dependencies = [
 
 configopts = '-- -DCMAKE_USE_OPENSSL=1 -DCMAKE_PREFIX_PATH=$EBROOTNCURSES'
 
-#
-# Limit the CPU load on the build host.
-#
-import multiprocessing
-maxparallel = multiprocessing.cpu_count() / 2
-
 sanity_check_paths = {
     'files': ["bin/%s" % x for x in ['ccmake', 'cmake', 'cpack', 'ctest']],
     'dirs': [],

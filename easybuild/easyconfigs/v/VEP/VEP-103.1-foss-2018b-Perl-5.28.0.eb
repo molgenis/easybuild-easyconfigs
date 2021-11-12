@@ -1,0 +1,47 @@
+name = 'VEP'
+version = '103.1'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://www.ensembl.org/info/docs/tools/vep'
+description = """Variant Effect Predictor (VEP) determines the effect of your variants (SNPs, insertions, deletions,
+ CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions."""
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+source_urls = ['https://github.com/Ensembl/ensembl-vep/archive/release/']
+sources = ['%(version)s.tar.gz']
+checksums = ['3512a2c3514f7c10b0348b45bf9fe621dc691100e43f14bec48842b1e11bbf8b']
+
+dependencies = [
+    ('Perl', '5.28.0'),
+    ('DBD-mysql', '4.048', versionsuffix),
+    ('BioPerl', '1.7.2', versionsuffix),
+    ('Bio-DB-HTS', '2.11', versionsuffix),
+]
+
+exts_defaultclass = 'PerlModule'
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
+modextrapaths = {
+    'PERL5LIB': 'lib/perl5/site_perl/%(perlver)s/'
+}
+
+exts_list = [
+    ('Bio::EnsEMBL::XS', '2.3.2', {
+        'source_tmpl': '%(version)s.tar.gz',
+        'source_urls': ['https://github.com/Ensembl/ensembl-xs/archive'],
+        'checksums': ['aafc59568cd1042259196575e99cdfeef9c0fb7966e5f915cfaf38c70885ffa5'],
+    }),
+    ('PerlIO::gzip', '0.20', {
+        'source_tmpl': 'PerlIO-gzip-0.20.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/'],
+        'checksums': ['4848679a3f201e3f3b0c5f6f9526e602af52923ffa471a2a3657db786bd3bdc5'],
+    }),
+    ('Set::IntervalTree', '0.10', {
+        'source_tmpl': 'Set-IntervalTree-0.10.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BE/BENBOOTH/'],
+        'checksums': ['e3bd9ccf0d074b5f879eef1ed88254983697bf83d02744fce62150ee46553ebc'],
+    })
+]
+
+moduleclass = 'bio'

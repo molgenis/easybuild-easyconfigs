@@ -12,5 +12,5 @@ toolchainopts = {'pic': True}
 
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = [SOURCEFORGE_SOURCE]
-
+checksums = ['dd7dab7a5fea97d2a6a43f511449b7cd']
 moduleclass = 'tools'

@@ -12,6 +12,10 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 source_urls = ["http://prdownloads.sourceforge.net/tcl"]
 sources = ['%(namelower)s%(version)s-src.tar.gz']
+checksums = [
+   '261754d7dc2a582f00e35547777e1fea',
+   '4f47448b0a9831ca602271d0628b44a3'
+]
 
 patches = ['Tk-%(version)s_different-prefix-with-tcl.patch']
 

@@ -13,6 +13,7 @@ toolchainopts = {'optarch': True, 'pic': True}
 
 source_urls = [GNU_SOURCE]
 sources = [SOURCE_TAR_GZ]
+checksums = ['f551c24b30ce8bfb6e96d9f59b42fbea30fa3a6123384172f9e7284bcf647260']
 
 configopts = [
     # default build

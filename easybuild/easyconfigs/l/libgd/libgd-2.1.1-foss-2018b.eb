@@ -10,6 +10,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 source_urls = ['https://bitbucket.org/libgd/gd-libgd/downloads']
 sources = [SOURCELOWER_TAR_GZ]
+checksums = ['914f27f31ceb46827a322a1bc5165aff']
 
 dependencies = [
     ('fontconfig', '2.11.94'),

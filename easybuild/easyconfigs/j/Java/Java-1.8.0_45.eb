@@ -11,5 +11,6 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 (vp, vs) = version.split('_')
 altver = '%su%s' % (vp.split('.')[1], vs)
 sources = ['jdk-%s-linux-x64.tar.gz' % altver]
+checksums = ['f298ca9239051dfddf8642fcc9e264f7fe5af10adb67027feb3a0ed0a1a2316d']
 
 moduleclass = 'lang'

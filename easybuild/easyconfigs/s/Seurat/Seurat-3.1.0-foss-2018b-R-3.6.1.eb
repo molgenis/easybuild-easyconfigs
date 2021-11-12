@@ -14,7 +14,7 @@ modextrapaths = {'R_LIBS': ['library', '']}
 
 dependencies = [
     ('R', '3.6.1', '-bare'),
-    ('RPlus', '3.6.1', '-v19.07.1'),
+    ('RPlus', '3.6.1', '-v20.10.1'),
 ]
 
 # The '.' is a silly workaround to check for whatever current dir as workaround

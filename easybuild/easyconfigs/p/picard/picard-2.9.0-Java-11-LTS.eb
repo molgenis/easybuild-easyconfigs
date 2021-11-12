@@ -1,0 +1,37 @@
+easyblock = 'Binary'
+
+name = 'picard'
+version = '2.9.0'
+
+homepage = 'https://broadinstitute.github.io/picard/'
+description = 'Java tools for working with next generation sequencing data in the BAM format.'
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+source_urls = ['https://github.com/broadinstitute/%(name)s/releases/download/%(version)s/']
+checksums = ['b711d492f16dfe0084d33e684dca2202']
+sources = [{
+    'filename': '%(name)s-%(version)s.jar',
+    'download_filename': '%(name)s.jar',
+}]
+
+java = 'Java'
+javaver = '11-LTS'
+versionsuffix = '-%s-%s' % (java, javaver)
+
+dependencies = [
+    (java, javaver, '', True),
+]
+
+postinstallcmds = [
+    ('chmod -R g+rwX,o+rX,o-w %(installdir)s/*'),
+    ('cd %(installdir)s/ && ln -s %(name)s-%(version)s.jar  %(name)s.jar'),
+]
+
+sanity_check_paths = {
+    'files': ['%(name)s.jar'],
+    'dirs': [],
+}
+
+modloadmsg = 'To execute Picard run: java -jar \\${EBROOTPICARD}/%(name)s.jar'
+moduleclass = 'bio'

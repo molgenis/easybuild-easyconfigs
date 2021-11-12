@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 builddependencies = [
-    ('Python', '2.7.11')
+    ('Python', '2.7.16', '-bare')
 ]
 
 configopts = "--disable-maintainer-mode --disable-silent-rules --disable-libelf --disable-systemtap"

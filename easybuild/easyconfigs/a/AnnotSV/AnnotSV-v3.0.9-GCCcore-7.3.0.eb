@@ -1,0 +1,55 @@
+easyblock = 'ConfigureMake'
+
+name = 'AnnotSV'
+version = 'v3.0.9'
+
+homepage = 'https://github.com/lgmgeo/AnnotSV/'
+description = """An integrated tool for annotation and ranking of Structural Variations."""
+
+toolchain = {'name': 'GCCcore', 'version': '7.3.0'}
+
+sources = [{
+    'source_urls': ['https://github.com/lgmgeo/AnnotSV/archive/'],
+    'filename': '%(name)s-%(version)s.tar.gz',
+    'download_filename': '%(version)s.tar.gz',
+}]
+
+patches = ['%(name)s-%(version)s.patch']
+
+checksums = [
+    '7042c89ccc7ae0eb2c0eaed3f76a4af2bb918c9a3b9c1afd0e290adf7ef535df', #  AnnotSV-v3.0.9.tar.gz
+    '6c60afd2c304297d55211702396de40272273ca37041cfcf4b6d13a640b3148a'  #  AnnotSV-v3.0.9.patch
+]
+
+builddependencies = [
+    ('binutils', '2.30'),
+]
+
+dependencies = [
+    ('Tcl', '8.6.9'),
+    ('BEDTools', '2.28.0'),
+    ('BCFtools', '1.10.2'),
+    ('Java', '11', '-LTS', True),
+]
+
+skipsteps = ['configure']
+
+buildopts = 'PREFIX=%(installdir)s'
+parallel = 1
+
+installopts = 'PREFIX=%(installdir)s'
+
+postinstallcmds = ['make PREFIX=%(installdir)s/ install-human-annotation']
+
+sanity_check_paths = {
+    'files': [
+        'bin/AnnotSV',
+        'share/AnnotSV/Annotations_Human/Genes/GRCh37/genes.ENSEMBL.sorted.bed',
+        'share/AnnotSV/Annotations_Human/Genes/GRCh38/genes.ENSEMBL.sorted.bed',
+     ],
+    'dirs': ['bin', 'etc', 'share'],
+}
+
+moduleclass = 'bio'
+#modextrapaths = {'PATH': ['']}
+modextravars = {'ANNOTSV': '%(installdir)s'}

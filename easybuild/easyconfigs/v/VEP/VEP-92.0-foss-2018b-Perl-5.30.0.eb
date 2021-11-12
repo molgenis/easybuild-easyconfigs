@@ -16,7 +16,7 @@ dependencies = [
     ('PerlPlus', '5.30.0','-v19.08.1',('GCCcore','7.3.0')),
     ('BioPerl', '1.7.2', versionsuffix),
     ('HTSlib','1.9'),
-    ('Bio-DB-HTS', '2.11', versionsuffix),
+    ('Bio-DB-HTS', '3.01', versionsuffix),
 ]
 
 moduleclass = 'bio'

@@ -8,6 +8,7 @@ toolchain developed for the Gnome project
 
 toolchain = {'name': 'foss', 'version': '2018b'}
 toolchainopts = {'pic': True}
+checksums = ['9e6a9aca9d155737868b3dc5fd82f788']
 
 source_urls = [
     'http://xmlsoft.org/sources/',

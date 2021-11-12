@@ -6,8 +6,9 @@ description = "binutils: GNU binary utilities"
 
 toolchain = {'name': 'GCC', 'version': '4.9.3-binutils-%s' % version}
 
-sources = [SOURCE_TAR_GZ]
 source_urls = [GNU_SOURCE]
+sources = [SOURCE_TAR_GZ]
+checksums = ['cccf377168b41a52a76f46df18feb8f7285654b3c1bd69fc8265cb0fc6902f2d']
 
 builddependencies = [
     ('flex', '2.5.39'),

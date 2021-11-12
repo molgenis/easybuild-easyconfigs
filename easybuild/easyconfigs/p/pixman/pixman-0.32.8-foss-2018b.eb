@@ -11,6 +11,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 source_urls = ['http://cairographics.org/releases/']
 sources = [SOURCE_TAR_GZ]
+checksums = ['e588622e375e7d578e9df320f1ace2de']
 
 sanity_check_paths = {
     'files': ['lib/libpixman-1.so'],

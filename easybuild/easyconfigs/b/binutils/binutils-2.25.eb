@@ -8,6 +8,7 @@ toolchain = {'name': 'dummy', 'version': ''}
 
 sources = [SOURCE_TAR_GZ]
 source_urls = [GNU_SOURCE]
+checksums = ['ab6719fd7434caf07433ec834db8ad4f']
 
 builddependencies = [
     ('M4', '1.4.17'),

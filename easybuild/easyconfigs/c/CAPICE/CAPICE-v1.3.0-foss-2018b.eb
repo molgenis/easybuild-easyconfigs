@@ -18,7 +18,7 @@ sources = [{
     'source_urls': [('https://github.com/molgenis/capice/releases/download/%s/' % (version))],
     'filename': 'capice2vcf-%(version)s.jar',
     'download_filename': 'capice2vcf.jar',
-    'extract_cmd': 'cp %s .'}
+    'extract_cmd': 'cp %s capice2vcf.jar'}
 ]
 
 checksums = [
@@ -32,7 +32,7 @@ dependencies = [
 ]
 
 postinstallcmds = [
-    'cd %(installdir)s && ln -s capice2vcf-%(version)s.jar capice2vcf.jar',
+    'cd %(installdir)s && ln -s capice2vcf.jar capice2vcf-%(version)s.jar',
     'chmod -R 775 %(installdir)s/*.sh',
     'chmod -R g+rwX,o+rX,o-w %(installdir)s/*'
 ]

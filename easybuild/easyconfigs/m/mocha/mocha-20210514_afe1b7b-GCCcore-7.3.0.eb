@@ -1,0 +1,60 @@
+easyblock = 'ConfigureMake'
+
+name = 'mocha'
+_local_bcftools_version = '1.11'
+_local_mocha_hash = 'afe1b7bbe997b75ff5e4923fefa0be99d64409bd'
+version = '20210514_' + _local_mocha_hash[0:7]
+
+homepage = 'https://github.com/freeseek/mocha'
+
+description = """Plugins for BCFtools to call mosaic chromosomal alterations starting from phased VCF files 
+with either B Allele Frequency (BAF) and Log R Ratio (LRR) or allelic depth (AD).
+"""
+
+toolchain = {'name': 'GCCcore', 'version': '7.3.0'}
+
+sources = [{
+    'source_urls': ['https://github.com/samtools/bcftools/releases/download/%s/' % (_local_bcftools_version)],
+    'filename': 'bcftools-%s.tar.bz2' % (_local_bcftools_version),
+},{
+    'source_urls': ['https://github.com/freeseek/mocha/archive/'],
+    'download_filename': '%s.tar.gz' % (_local_mocha_hash),
+    'filename': '%(name)s-%(version)s.tar.gz',
+    'extract_cmd': 'tar -xvzf %s && mv mocha-*/*.{c,h} bcftools-*/plugins/',
+}]
+checksums = [
+    '3ceee47456ec481f34fa6c34beb6fe892b5b365933191132721fdf126e45a064', #  bcftools-1.11.tar.bz2
+    'afe634ba98e48ddf3b2ecfec5a78f975e432e8e0f5a2fa9396a2fe23f63c3b61', #  mocha-%(_local_mocha_hash)s.tar.gz
+]
+
+builddependencies = [
+    ('binutils', '2.30'),
+]
+
+dependencies = [
+    ('BCFtools', '%s' % (_local_bcftools_version)), # Make sure runtime BCFtools version is in sync with the one fetched from GitHub to compile gtc2vcf.
+]
+
+#
+# Copy compiled shared libs to plugins dir that can be used with existing BCFtoools module.
+#
+install_cmd  = "mkdir -p %(installdir)s/libexec/bcftools/ && "
+install_cmd += "mkdir -p %(installdir)s/bin/ && "
+install_cmd += "cp -a %(builddir)s/bcftools-*/plugins/{fill-tags,fixploidy,mocha,trio-phase,mochatools,extendFMT}.so %(installdir)s/libexec/bcftools/ && "
+install_cmd += "cp -a %(builddir)s/mocha-*/*_plot.R %(installdir)s/bin/ && "
+install_cmd += "cp -a %(builddir)s/mocha-*/{LICENSE,README.md} %(installdir)s/"
+
+sanity_check_paths = {
+    'files': ['LICENSE', 'bin/mocha_plot.R', 'bin/summary_plot.R']
+             + ['libexec/bcftools/extendFMT.%s' % SHLIB_EXT]
+             + ['libexec/bcftools/fill-tags.%s' % SHLIB_EXT]
+             + ['libexec/bcftools/fixploidy.%s' % SHLIB_EXT]
+             + ['libexec/bcftools/mocha.%s' % SHLIB_EXT]
+             + ['libexec/bcftools/mochatools.%s' % SHLIB_EXT]
+             + ['libexec/bcftools/trio-phase.%s' % SHLIB_EXT],
+    'dirs': ['bin', 'libexec/bcftools'],
+}
+
+modextrapaths = {'BCFTOOLS_PLUGINS': ['libexec/bcftools/']}
+moduleclass = 'bio'
+

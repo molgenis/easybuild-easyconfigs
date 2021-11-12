@@ -1,0 +1,33 @@
+name = 'vcf-inheritance-matcher'
+version = 'v0.1.1'
+versionsuffix = '-Java-%(javaver)s-LTS'
+
+homepage = 'https://github.com/molgenis/vip-inheritance-matcher/'
+description = """Command-line application to match gene inheritance modes with sample inheritance based on genmod annotations."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+easyblock = 'Binary'
+
+sources = [{
+    'source_urls': ['https://github.com/molgenis/vip-inheritance-matcher/releases/download/%(version)s/'],
+    'filename': 'vcf-inheritance-matcher-%(version)s.jar',
+    'download_filename': 'vcf-inheritance-matcher.jar',
+}]
+
+checksums = ['086f15d67e66cae99888e35a7224cd1200ac1ec62b0858e8fcef9ac17abf3ba1']
+
+postinstallcmds = ['cd %(installdir)s && ln -s vcf-inheritance-matcher-%(version)s.jar vcf-inheritance-matcher.jar']
+
+dependencies = [
+    ('Java', '11', '-LTS')
+]
+
+#
+# Sanity checking.
+#
+sanity_check_paths = {
+    'files': ['vcf-inheritance-matcher-%(version)s.jar', 'vcf-inheritance-matcher.jar'],
+    'dirs': []
+}
+
+moduleclass = 'bio'

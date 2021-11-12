@@ -10,6 +10,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 source_urls = [GNU_SAVANNAH_SOURCE]
 sources = [SOURCE_TAR_GZ]
+checksums = ['348e667d728c597360e4a87c16556597']
 
 dependencies = [('libpng', '1.6.21')]
 

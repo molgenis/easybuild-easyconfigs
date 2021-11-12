@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'file'
+version = '5.37'
+
+homepage = 'http://www.darwinsys.com/file/'
+description = """The file command is 'a file type guesser', that is, a command-line tool
+ that tells you in words what kind of data a file contains."""
+
+toolchain = {'name': 'GCCcore', 'version': '7.3.0'}
+
+source_urls = ['https://github.com/%(name)s/%(name)s/archive/']
+sources = [{
+    'filename': '%(name)s-%(version)s.tar.gz',
+    'download_filename': 'FILE5_37.tar.gz',
+}]
+checksums = ['f12dfdbd4203875f46da46f818b1b33334a3489f16567703bacd14b5a78f5f80']
+
+builddependencies = []
+
+#
+# The source distro does not contain a configure script out of the box:
+# Use tools from the Autotools module to create the configure script.
+#
+builddependencies = [
+    ('binutils', '2.30'),
+    ('Autotools', '20180311'),
+]
+preconfigopts = 'autoreconf -f -i && chmod a+x configure && '
+
+sanity_check_paths = {
+    'files': ['bin/file', 'include/magic.h', 'lib/libmagic.%s' % SHLIB_EXT],
+    'dirs': ['share']
+}
+
+moduleclass = 'system'

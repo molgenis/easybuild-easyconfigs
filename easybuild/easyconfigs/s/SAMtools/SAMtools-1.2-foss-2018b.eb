@@ -19,7 +19,10 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 toolchainopts = {'optarch': True, 'pic': True}
 sources = [SOURCELOWER_TAR_BZ2]
 source_urls = ['https://github.com/samtools/%(namelower)s/releases/download/%(version)s']
-checksums = ['988ec4c3058a6ceda36503eebecd4122']
+checksums = [
+   '988ec4c3058a6ceda36503eebecd4122',
+   '0616341d9d7fb29c669d07fa4e2d8732'
+]
 
 patches = ['SAMtools-1.1_Makefile.patch']
 

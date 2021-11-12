@@ -1,0 +1,39 @@
+--- AnnotSV-3.0.9.original/Makefile	2021-06-15 07:08:24.000000000 +0000
++++ AnnotSV-3.0.9.patched/Makefile	2021-06-15 11:40:23.151391286 +0000
+@@ -40,9 +40,9 @@
+ VERSION              := 3.0.9
+ RM                   := /bin/rm
+ RMDIR                := /bin/rmdir
+-MKDIR                := install -d
++MKDIR                := install -d -m 2775
+ MV                   := /bin/mv
+-CP                   := install -p -m 0644
++CP                   := install -p -m 0664
+ CPDIR                := /bin/cp -r
+ CONFIGFILE           := etc/$(ANNOTSV)/configfile
+ MAKEFILE             := Makefile
+@@ -80,13 +80,13 @@
+ 	@echo "Configfile configuration"
+ 	@echo "------------------------"
+ 	$(MKDIR) $(DESTDIR)$(ETCDIR)/$(ANNOTSV)
+-	install -p -m 0755 $(CONFIGFILE)  $(DESTDIR)$(ETCDIR)/$(ANNOTSV)
++	install -p -m 0664 $(CONFIGFILE)  $(DESTDIR)$(ETCDIR)/$(ANNOTSV)
+ 
+ install-makefile: $(MAKEFILE)
+ 	@echo ""
+ 	@echo "Makefile installation"
+ 	@echo "---------------------"
+-	install -p -m 0755 $(MAKEFILE)  $(DESTDIR)$(PREFIX)
++	install -p -m 0664 $(MAKEFILE)  $(DESTDIR)$(PREFIX)
+ 
+ install-executable:
+ 	@echo ""
+@@ -152,7 +152,7 @@
+ 	$(RM) -rf 2007_hg19.tar.gz
+ 
+ install-exomiser-2:
+-	install -p -m 0755 $(PROPERTIES) $(DESTDIR)$(ETCDIR)/$(ANNOTSV)
++	install -p -m 0664 $(PROPERTIES) $(DESTDIR)$(ETCDIR)/$(ANNOTSV)
+ 	$(CPDIR) share/AnnotSV/jar/ $(DESTDIR)$(SHAREDIR)/$(ANNOTSV)/
+ 
+ install-exomiser-3:

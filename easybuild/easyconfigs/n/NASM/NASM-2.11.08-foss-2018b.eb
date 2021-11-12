@@ -22,6 +22,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 sources = [SOURCELOWER_TAR_BZ2]
 source_urls = ['http://www.nasm.us/pub/nasm/releasebuilds/%(version)s']
+checksums = ['7aae5cb8e03fac48029c82a7470ab066']
 
 sanity_check_paths = {
     'files': ['bin/nasm'],

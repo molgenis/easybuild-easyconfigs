@@ -8,7 +8,7 @@ description = "MariaDB Connector/C is used to connect applications developed in 
 
 toolchain = {'name': 'GCCcore', 'version': '7.3.0'}
 
-source_urls = ['https://downloads.mariadb.org/f/connector-c-%(version)s']
+source_urls = ['https://downloads.mariadb.com/Connectors/c/connector-c-%(version)s']
 sources = ['mariadb-connector-c-%(version)s-src.tar.gz']
 checksums = ['3e6f6c399493fe90efdc21a3fe70c30434b7480e8195642a959f1dd7a0fa5b0f']
 

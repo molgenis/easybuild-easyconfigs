@@ -47,7 +47,10 @@ dependencies = [
     ('libxml2', '2.9.8'),
 ]
 
-builddependencies = [('CMake', '3.12.1')]
+builddependencies = [
+    ('CMake', '3.12.1'),
+    ('Bison', '3.0.5'),
+]
 
 separate_build_dir = True
 

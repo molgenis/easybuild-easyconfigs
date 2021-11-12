@@ -12,6 +12,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 source_urls = ["http://prdownloads.sourceforge.net/tcl"]
 sources = ['%(namelower)s%(version)s-src.tar.gz']
+checksums = ['d7cbb91f1ded1919370a30edd1534304']
 
 dependencies = [
     ('zlib', '1.2.8'),

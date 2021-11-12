@@ -10,6 +10,7 @@ toolchainopts = {'optarch': True, 'pic': True}
 
 source_urls = ['http://www.cpan.org/src/5.0']
 sources = [SOURCELOWER_TAR_GZ]
+checksums = ['e32cb6a8dda0084f2a43dac76318d68d']
 
 # bare, no extensions
 exts_list = []

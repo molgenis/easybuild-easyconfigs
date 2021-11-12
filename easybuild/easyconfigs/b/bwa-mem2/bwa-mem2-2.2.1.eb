@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'bwa-mem2'
+version = '2.2.1'
+
+homepage = 'http://bio-bwa.sourceforge.net/'
+
+description = """
+ Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively
+ short nucleotide sequences against a long reference sequence such as the human
+ genome.
+"""
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/%(name)s/%(name)s/releases/download/v%(version)s/']
+sources = ['%(name)s-%(version)s_x64-linux.tar.bz2']
+checksums = ['b4cfdbce8cc07cdf3f6a920facabc29c976cf77dd53573369508111d6d1c555b']
+
+sanity_check_paths = {
+    'files': ['bwa-mem2', 'README.md'],
+    'dirs': [],
+}
+
+modextrapaths = {'PATH': '.'}
+moduleclass = 'bio'

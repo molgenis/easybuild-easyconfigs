@@ -24,6 +24,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 source_urls = ['http://www.sqlite.org/2015/']
 version_str = '%%(version_major)s%s00' % ''.join('%02d' % int(x) for x in version.split('.')[1:])
 sources = ['sqlite-autoconf-%s.tar.gz' % version_str]
+checksums = ['bc4eb5b3fc5cfcb6e059794306cac1ca']
 
 dependencies = [
     ('libreadline', '6.3'),

@@ -15,6 +15,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = ['http://curl.haxx.se/download/']
+checksums = ['3f9d1be7bf33ca4b8c8602820525302b']
 
 osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
 

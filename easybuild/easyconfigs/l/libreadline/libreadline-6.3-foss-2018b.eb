@@ -14,6 +14,10 @@ toolchainopts = {'pic': True}
 
 sources = ['readline-%(version)s.tar.gz']
 source_urls = ['http://ftp.gnu.org/gnu/readline']
+checksums = [
+   '33c8fb279e981274f485fd91da77e94a',
+   'de2fef57b0a43ce1e4fd6c41cbb2f0ff'
+]
 
 patches = ['libreadline-%(version)s-bugfix.patch']
 

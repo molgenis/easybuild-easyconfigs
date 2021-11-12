@@ -11,6 +11,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 source_urls = ['http://www.freedesktop.org/software/fontconfig/release/']
 sources = [SOURCE_TAR_GZ]
+checksums = ['479be870c7f83f15f87bac085b61d641']
 
 dependencies = [
     ('expat', '2.1.0'),

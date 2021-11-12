@@ -11,6 +11,7 @@ source_urls = [
     'ftp://ftp.remotesensing.org/pub/libtiff/',
 ]
 sources = ['tiff-%(version)s.tar.gz']
+checksums = ['9aee7107408a128c0c7b24286c0db900']
 
 toolchain = {'name': 'foss', 'version': '2018b'}
 

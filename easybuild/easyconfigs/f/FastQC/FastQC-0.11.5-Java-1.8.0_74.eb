@@ -15,6 +15,11 @@ toolchain = {'name': 'dummy', 'version': ''}
 source_urls = ['http://www.bioinformatics.babraham.ac.uk/projects/%(namelower)s']
 sources = ['%(namelower)s_v%(version)s.zip']
 
+checksums = [
+   '3524f101c0ab0bae77c7595983170a76',
+   '2cf189abedd5eae51dabb21cd14dc02f'
+]
+
 patches = ['FastQC_shebang.patch']
 
 dependencies = [('Java', '1.8.0_74')]

@@ -12,7 +12,7 @@ toolchain = {'name': 'foss', 'version': '2018b'}
 
 dependencies = [
     ('Python', pyver, '-bare'),
-    ('PythonPlus', pyver, '-v19.08.1'),
+    ('PythonPlus', pyver, '-v21.08.1'),
 ]
 
 #

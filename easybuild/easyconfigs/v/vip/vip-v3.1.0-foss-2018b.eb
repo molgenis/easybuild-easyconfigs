@@ -1,0 +1,41 @@
+easyblock = 'Tarball'
+
+name = 'vip'
+version = 'v3.1.0'
+
+homepage = 'https://github.com/molgenis/vip/'
+description = """Variant Interpretation Pipeline"""
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+source_urls = [('http://github.com/molgenis/%s/archive/' % (name))]
+sources = [('%s.tar.gz' % (version))]
+checksums = ['2d53d356e3da00f071aaf25365924691dc060d198359e60f812df0d28d07c588']
+
+#
+# set default singularity image folder
+#
+postinstallcmds = [
+    'cd %(installdir)s/singularity && ln -s /apps/data/vip/%(version)s/sif sif',
+]
+
+sanity_check_paths = {
+    'files': ['pipeline.sh'],
+    'dirs': []
+}
+
+moduleclass = 'bio'
+
+modloadmsg = """
+===============================================================================
+Show usage:
+       bash ${EBROOTVIP}/pipeline.sh
+
+Show usage for individual pipeline modules:
+       bash ${EBROOTVIP}/pipeline_preprocess.sh
+       bash ${EBROOTVIP}/pipeline_annotate.sh
+       bash ${EBROOTVIP}/pipeline_filter.sh
+       bash ${EBROOTVIP}/pipeline_inheritance.sh
+       bash ${EBROOTVIP}/pipeline_report.sh
+===============================================================================
+"""
