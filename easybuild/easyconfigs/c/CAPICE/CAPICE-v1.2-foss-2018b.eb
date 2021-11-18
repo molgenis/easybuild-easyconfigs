@@ -31,4 +31,5 @@ sanity_check_paths = {
     'dirs': ['CAPICE_model', 'CAPICE_scripts','CAPICE_example']
 }
 
+modloadmsg = """To execute CAPICE run: sh \${EBROOTCAPICE}/predict.sh"""
 moduleclass = 'bio'

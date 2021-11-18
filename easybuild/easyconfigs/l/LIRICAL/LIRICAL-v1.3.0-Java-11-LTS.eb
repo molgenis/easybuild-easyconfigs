@@ -1,0 +1,32 @@
+easyblock = 'Binary'
+
+name = 'LIRICAL'
+version = 'v1.3.0'
+versionsuffix = '-Java-%(javaver)s-LTS'
+
+homepage = 'https://lirical.readthedocs.io/en/latest/'
+description = """LIRICAL: LIkelihood Ratio Interpretation of Clinical AbnormaLities
+LIRICAL
+This application performs phenotype-driven prioritization of candidate diseases 
+and genes in the setting of genomic diagnostics (exome or genome) in which the 
+phenotypic abnormalities are described as Human Phenotype Ontology (HPO) terms.
+"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+source_urls = ['https://github.com/TheJacksonLaboratory/LIRICAL/releases/download/%(version)s/']
+sources = [('LIRICAL.jar')]
+
+checksums = ['2f1dc746e87590847b51babf3aa36e89bd1c52aa30d3da18cc4e56b24d63b7e6']
+
+dependencies = [
+    ('Java', '11', '-LTS'),
+    ('exomiser-cli', '11.0.0', '-Java-11-LTS')
+]
+
+sanity_check_paths = {
+    'files': ['LIRICAL.jar'],
+    'dirs': [],
+}
+
+moduleclass = 'bio'
+modloadmsg = "INFO: To execute LIRICAL run:\n      java -jar ${EBROOTLIRICAL}/LIRICAL.jar yaml -y example.yml\n\n"

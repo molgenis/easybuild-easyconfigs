@@ -1,0 +1,89 @@
+easyblock = 'Bundle'
+
+name = 'RStan'
+version = '2.19.2'
+versionsuffix = '-R-%(rver)s'
+
+homepage = 'https://github.com/stan-dev/rstan'
+description = """RStan is the R interface to Stan. Stan is a state-of-the-art 
+ platform for statistical modeling and high-performance statistical computation."""
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+dependencies = [
+    ('R', '3.6.1', '-bare'),
+    ('RPlus', '3.6.1', '-v20.02.1'),
+    ('GSL', '2.1'),
+    ('nodejs', '12.16.1')
+]
+
+preinstallcmds=[('R -e Sys.setenv(DOWNLOAD_STATIC_LIBV8 = 1)')]
+
+exts_defaultclass = 'RPackage'
+exts_filter = ("R -q --no-save", "library(%(ext_name)s)")
+
+exts_default_options = {
+    'source_urls': [
+        'https://cran.r-project.org/src/contrib',
+        'https://cran.r-project.org/src/contrib/Archive/%(name)s',
+    ],
+    'source_tmpl': '%(name)s_%(version)s.tar.gz',
+}
+
+bioconductor_options = {
+    'source_urls': [
+        'http://www.bioconductor.org/packages/release/bioc/src/contrib/',
+        'http://www.bioconductor.org/packages/release/data/annotation/src/contrib/',
+        'http://www.bioconductor.org/packages/release/data/experiment/src/contrib/',
+        'http://www.bioconductor.org/packages/release/extra/src/contrib/',
+        'http://bioconductor.org/packages/3.10/bioc/src/contrib/',
+        'http://bioconductor.org/packages/3.10/data/annotation/src/contrib/',
+        'http://bioconductor.org/packages/3.10/data/experiment/src/contrib/',
+        'http://bioconductor.org/packages/3.10/workflows/src/contrib/',
+        'http://bioconductor.org/packages/3.10/bioc/src/contrib/Archive/%(name)s/',
+        'http://bioconductor.org/packages/3.10/data/annotation/src/contrib/Archive/%(name)s/',
+        'http://bioconductor.org/packages/3.10/data/experiment/src/contrib/Archive/%(name)s/',
+        'http://bioconductor.org/packages/3.10/workflows/src/contrib/Archive/%(name)s/',
+    ],
+    'source_tmpl': '%(name)s_%(version)s.tar.gz',
+}
+
+exts_list = [
+    ('inline', '0.3.15', {
+        'checksums': ['ff043fe13c1991a3b285bed256ff4a9c0ba10bee764225a34b285875b7d69c68'],
+    }),
+    ('loo', '2.1.0', {
+        'checksums': ['1bf4a1ef85d151577ff96d4cf2a29c9ef24370b0b1eb08c70dcf45884350e87d'],
+    }),
+    ('StanHeaders', '2.19.2', {
+        'checksums': ['55d9bf48866db8353e993ae373baa69820ec9ea9b005ceb867edf4cfbe03b332'],
+    }),
+#    ('V8', '2.3', {
+ #       'checksums': ['f720d772c1d66cac0320230f2e6189e0b8a59af6e589e421e3d2423099d505b3'],
+  #  }),
+    ('rstan', version, {
+        'checksums': ['31e4ceb9c327cd62873225097ffa538c2ac4cb0547c52271e52e4c7652d508da'],
+    }),
+    ('DirichletMultinomial', '1.28.0', {
+        'source_tmpl': '%(name)s_%(version)s.tar.gz',
+        'source_urls': ['http://www.bioconductor.org/packages/release/bioc/src/contrib/', 'http://www.bioconductor.org/packages/release/data/annotation/src/contrib/', 'http://www.bioconductor.org/packages/release/data/experiment/src/contrib/', 'http://www.bioconductor.org/packages/release/extra/src/contrib/', 'http://bioconductor.org/packages/3.10/bioc/src/contrib/', 'http://bioconductor.org/packages/3.10/data/annotation/src/contrib/', 'http://bioconductor.org/packages/3.10/data/experiment/src/contrib/', 'http://bioconductor.org/packages/3.10/workflows/src/contrib/', 'http://bioconductor.org/packages/3.10/bioc/src/contrib/Archive/%(name)s/', 'http://bioconductor.org/packages/3.10/data/annotation/src/contrib/Archive/%(name)s/', 'http://bioconductor.org/packages/3.10/data/experiment/src/contrib/Archive/%(name)s/', 'http://bioconductor.org/packages/3.10/workflows/src/contrib/Archive/%(name)s/'],
+        'checksums': ['1ae44436600205c4074ff6e78be7cf3639efab45ba50e6b0bf5eb8392bb3d54e'],
+    }),
+]
+
+#postinstallcmds = [
+#    "R -e if (!require('devtools')) install.packages('devtools', repos='http://cran.us.r-project.org') devtools::install_github('stan-dev/rstantools')",
+#    "R -e devtools::install_github('davidaknowles/leafcutter/leafcutter', 'newstanlayout'",
+#    ]
+
+#postinstallcmds = 'R -e install.packages("devtools"); devtools::install_github("davidaknowles/leafcutter/leafcutter", "newstanlayout")'
+#devtools::install_github("davidaknowles/leafcutter/leafcutter")
+
+modextrapaths = {'R_LIBS': ''}
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['rstan'],
+}
+
+moduleclass = 'data'

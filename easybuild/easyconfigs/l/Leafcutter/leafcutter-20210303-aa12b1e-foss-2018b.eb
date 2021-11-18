@@ -1,0 +1,37 @@
+easyblock = 'PackedBinary'
+
+name = 'leafcutter'
+version = '20210303-aa12b1e'
+
+homepage = 'https://github.com/davidaknowles/leafcutter'
+description = """Leafcutter quantifies RNA splicing variation using 
+short-read RNA-seq data. The core idea is to leverage spliced reads 
+(reads that span an intron) to quantify (differential) intron usage across samples.  """
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+#
+# Example URL: https://github.com/davidaknowles/leafcutter/archive/v0.2.9.tar.gz
+#
+source_urls = [('https://github.com/davidaknowles/leafcutter/archive/')]
+sources = [('%s.tar.gz' % (version))]
+
+checksums = ['a3f0f6af7703145a06b70626137971356b3a636f6aaed7db0fb8a796a44f21f0']
+
+dependencies = [ 
+    ('SAMtools', '1.9'),
+    ('RegTools', '0.5.2', '-Java-11-LTS'),
+    ('RStan', '2.19.2', '-R-3.6.1'),
+]
+
+postinstallcmds = [
+    'R -e devtools::install_github\(stan-dev/rstantools\)',
+    'R -e devtools::install_github\(davidaknowles/leafcutter/leafcutter, newstanlayout\)',
+    ] 
+
+sanity_check_paths = {
+    'files': ['README.md'],
+    'dirs': ['scripts', 'leafcutter']
+}
+
+moduleclass = 'bio'
