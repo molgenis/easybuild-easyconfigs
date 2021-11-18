@@ -908,9 +908,9 @@ mistune==0.8.4 \
     --hash=sha256:59a3429db53c50b5c6bcc8a07f8848cb00d7dc8bdb431a4ab41920d201d4756e \
     --hash=sha256:88a1051873018da288eee8538d476dffe1262495144b33ecb586c4ab266bb8d4
     # via -r /apps/software/easyconfigs/easybuild-easyconfigs-2.8.43/easybuild/easyconfigs/p/PythonPlus/PythonPlus-2.7.16-foss-2018b-v21.08.1-requirements.txt
-mkdocs==1.0.4 \
-    --hash=sha256:17d34329aad75d5de604b9ed4e31df3a4d235afefdc46ce7b1964fddb2e1e939 \
-    --hash=sha256:8cc8b38325456b9e942c981a209eaeb1e9f3f77b493ad755bfef889b9c8d356a
+mkdocs==1.2.3 \
+    --hash=sha256:a1fa8c2d0c1305d7fc2b9d9f607c71778572a8b110fb26642aa00296c9e6d072 \
+    --hash=sha256:89f5a094764381cda656af4298727c9f53dc3e602983087e1fe96ea1df24f4c1
     # via -r /apps/software/easyconfigs/easybuild-easyconfigs-2.8.43/easybuild/easyconfigs/p/PythonPlus/PythonPlus-2.7.16-foss-2018b-v21.08.1-requirements.txt
 mock==3.0.5 \
     --hash=sha256:83657d894c90d5681d62155c82bda9c1187827525880eda8ff5df4ec813437c3 \
