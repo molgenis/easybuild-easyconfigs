@@ -479,9 +479,9 @@ defusedxml==0.6.0 \
     --hash=sha256:6687150770438374ab581bb7a1b327a847dd9c5749e396102de3fad4e8a3ef93 \
     --hash=sha256:f684034d135af4c6cbb949b8a4d2ed61634515257a67299e5f940fbaa34377f5
     # via -r /apps/software/easyconfigs/easybuild-easyconfigs-2.8.43/easybuild/easyconfigs/p/PythonPlus/PythonPlus-2.7.16-foss-2018b-v21.08.1-requirements.txt
-django==1.11.23 \
-    --hash=sha256:52a66d7f8b036d02da0a4472359e8be1727424fc1e4b4f5c684ef97de7b569e1 \
-    --hash=sha256:c85b8c95366e187ca0581d45a6e508107ca4bd38cb45c24aa09d3572074c523d
+django==2.2.26 \
+    --hash=sha256:85e62019366692f1d5afed946ca32fef34c8693edf342ac9d067d75d64faf0ac \
+    --hash=sha256:dfa537267d52c6243a62b32855a744ca83c37c70600aacffbfd98bc5d6d8518f
     # via -r /apps/software/easyconfigs/easybuild-easyconfigs-2.8.43/easybuild/easyconfigs/p/PythonPlus/PythonPlus-2.7.16-foss-2018b-v21.08.1-requirements.txt
 docopt==0.6.2 \
     --hash=sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491
