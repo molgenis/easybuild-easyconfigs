@@ -45,9 +45,9 @@ installopts = '--require-hashes'
 # Sanity checking.
 #
 
-binaries = ['futurize', 'multiqc', 'pasteurize']
+local_binaries = ['futurize', 'multiqc', 'pasteurize']
 sanity_check_paths = {
-    'files': ['bin/%s' % x for x in binaries],
+    'files': ['bin/%s' % x for x in local_binaries],
     'dirs':  ['bin', 'lib/python%(pyshortver)s/site-packages'],
 }
 

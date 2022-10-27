@@ -20,8 +20,8 @@ checksums = ['28cf96bedb9550f20b32d340c7572ac2d15ac4aa94bfc6f33d1b755767f7f7bd']
 # Dependencies.
 #
 dependencies = [
-    ('Molgenis-Compute', 'v17.08.1', '-Java-1.8.0_74'),
-    ('BeadArrayFiles', '1.3.1','-Python-2.7.11', ('foss','2015b')),
+    ('Molgenis-Compute', 'v19.01.1', '-Java-11-LTS'),
+    ('BeadArrayFiles', '1.3.1','-Python-2.7.16', ('foss','2018b')),
 ]
 
 modextrapaths = {

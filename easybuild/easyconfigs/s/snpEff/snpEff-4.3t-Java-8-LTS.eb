@@ -9,15 +9,15 @@ It annotates and predicts the effects of genetic variants (such as amino acid ch
 
 toolchain = {'name': 'system', 'version': ''}
 
-java = 'Java'
-javaver = '8-LTS'
-versionsuffix = '-%s-%s' % (java, javaver)
+local_java = 'Java'
+local_javaver = '8-LTS'
+versionsuffix = '-%s-%s' % (local_java, local_javaver)
 
 source_urls = [SOURCEFORGE_SOURCE]
 sources = [('%s_v%s_core.zip' % (name, version.replace('.', '_')))]
 checksums = ['1fa84a703580a423e27f1e14a945901c']
 
-dependencies = [(java, javaver)]
+dependencies = [(local_java, local_javaver)]
 
 files_to_copy = ['%(name)s/*']
 

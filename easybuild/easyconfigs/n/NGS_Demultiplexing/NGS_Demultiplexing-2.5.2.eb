@@ -5,14 +5,16 @@ namelower = name.lower()
 homepage = 'https://github.com/molgenis/molgenis-pipelines'
 description = """This distribution already contains several pipelines/protocols/parameter files which you can use 'out-of-the-box' to align and impute your NGS data using MOLGENIS Compute."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = {'name': 'system', 'version': ''}
 easyblock = 'Tarball'
 
 #dependencies
 dependencies = [
     ('Molgenis-Compute','v19.01.1', '-Java-8-LTS'),
-    ('PerlPlus', '5.30.0', '-19.08.1',('GCCcore','7.3.0')),
-    ('Python', '2.7.16', '', ('GCCcore', '7.3.0')),
+    ('PerlPlus', '5.30.0', '-v19.08.1',('GCCcore','7.3.0')),
+    ('Python', '2.7.16', '-bare', ('GCCcore', '7.3.0')),
+    ('interop', '1.1.23', '', ('foss', '2018b')),
+    ('bcl2fastq2', '2.20.0', '', ('foss', '2018b')),
 ]
 
 #
