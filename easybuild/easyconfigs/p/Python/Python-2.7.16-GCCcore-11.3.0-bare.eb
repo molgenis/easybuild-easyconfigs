@@ -1,0 +1,53 @@
+name = 'Python'
+version = '2.7.16'
+versionsuffix = '-bare'
+
+homepage = 'http://python.org/'
+description = """Python is a programming language that lets you work more quickly and integrate your systems
+ more effectively."""
+
+toolchain = {'name': 'GCCcore', 'version': '11.3.0'}
+toolchainopts = {'pic': True}
+
+source_urls = ['http://www.python.org/ftp/%(namelower)s/%(version)s/']
+sources = [SOURCE_TGZ]
+checksums = ['01da813a3600876f03f46db11cc5c408175e99f03af2ba942ef324389a83bad5']
+
+builddependencies = [
+    ('binutils', '2.38'),
+]
+
+# If Tk is missing, the scikit-bio will not work
+# solution based on upstream
+#   https://github.com/boegel/easybuild-easyconfigs/blob/develop/easybuild/easyconfigs/p/Python/Python-2.7.9-GCC-4.9.2-bare.eb
+dependencies = [
+    ('bzip2', '1.0.8'),
+    ('zlib', '1.2.12'),
+    ('libreadline', '8.1.2'),
+    ('ncurses', '6.3'),
+    ('SQLite', '3.36'),
+    ('XZ', '5.2.5'),
+    ('Tk', '8.6.11', '-no-X11'), # see comment above 
+    ('GMP', '6.2.1'),     # required for pycrypto
+    ('libffi', '3.4.2'),  # required for cryptography
+    # OS dependency should be preferred if the os version is more recent then this version,
+    # it's nice to have an up to date openssl for security reasons
+    # ('OpenSSL', '1.1.0h'),
+]
+
+osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
+
+exts_download_dep_fail = True
+exts_list = [
+    ('setuptools', '44.1.1', {
+        'source_tmpl': '%(name)s-%(version)s.zip',
+        'source_urls': ['https://pypi.python.org/packages/source/s/setuptools/'],
+        'checksums': ['c67aa55db532a0dadc4d2e20ba9961cbd3ccc84d544e9029699822542b5a476b'],
+    }),
+    ('pip', '20.3.4', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/pip/'],
+        'checksums': ['6773934e5f5fc3eaa8c5a44949b5b924fc122daa0a8aa9f80c835b4ca2a543fc'],
+    }),
+]
+
+moduleclass = 'lang'

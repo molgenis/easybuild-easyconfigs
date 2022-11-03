@@ -8,7 +8,7 @@ ngsutilsreleaseversion = '21.11.1'
 homepage = 'https://github.com/molgenis/ngs-utils'
 description = """Collection of notes and scripts related to NGS """
 
-toolchain = {'name': 'GCCcore', 'version': '7.3.0'}
+toolchain = {'name': 'GCCcore', 'version': '11.3.0'}
 
 #
 # Example URL: https://github.com/molgenis/ngs-utils/releases/download/21.11.1/ngs-utils-21.11.1.zip
