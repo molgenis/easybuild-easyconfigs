@@ -1,0 +1,60 @@
+easyblock = 'PythonPackage'
+
+name = 'gVCF2BEDPyDepBundle'
+version = '1.0.0'            # Same as the vanilla Python module on which these add-on modules depend.
+versionsuffix = '-Python-3.10.4'   # In format YY.MM.IncrementedReleaseNumber.
+
+# solving santiy check:
+#   sanity tries to import module pythonplus, as it thinks it's python module = fail
+# solution (implemented in 2013)
+#   https://github.com/easybuilders/easybuild-framework/blob/develop/easybuild/framework/extension.py#L204
+#   https://www.mail-archive.com/easybuild@lists.ugent.be/msg06020.html
+options = {'modulename': False,} 
+
+homepage = 'https://www.python.org/'
+description = """The Python bundle contains a plain vanilla Python supplemented with a selection of add-on modules for 2 coverage conculation scrict based on gVCF.."""
+
+toolchain = {'name': 'GCCcore', 'version': '11.3.0'}
+toolchainopts = {'pic': True}
+
+# depend on numpy because of https://github.com/biocore/scikit-bio/issues/1734
+dependencies = [
+    ('Python', '3.10.4'),
+    ('LZO', '2.10'),
+    ('libxml2', '2.9.13'),
+    ('libxslt', '1.1.34'),
+    ('libpng', '1.6.37'),
+    ('cairo', '1.17.4'),
+    ('ICU', '71.1'),
+]
+
+exts_defaultclass = 'PythonPackage'
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+# make sure they do not involve pip or setuptools as those two should be
+# alredy included in python core
+sources = ['%(name)s-%(version)s-GCCcore-11.3.0%(versionsuffix)s-requirements_hashed.txt']
+
+checksums = ['fe178d5591f5bf85f21c299f97b75901ade9b314d94d22a33f616ea3b977df11']
+
+pip_ignore_installed = False
+sanity_pip_check = True
+unpack_sources = False
+use_pip = True
+use_pip_for_deps = True
+use_pip_requirement = True
+installopts = '--require-hashes'
+
+#
+# Sanity checking.
+#
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib/python%(pyshortver)s/site-packages']
+}
+ 
+sanity_check_commands = [
+    ( 'python -c "import numpy; print(numpy.version.version)"' ),
+]
+
+moduleclass = 'lang'

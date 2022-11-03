@@ -1,0 +1,45 @@
+
+easyblock = 'PackedBinary'
+
+name = 'gVCF2BED'
+version = '1.0.0'
+ngsutilsreleaseversion = '21.11.1'
+
+homepage = 'https://github.com/molgenis/ngs-utils'
+description = """Collection of notes and scripts related to NGS """
+
+toolchain = {'name': 'GCCcore', 'version': '11.3.0'}
+
+#
+# Example URL: https://github.com/molgenis/ngs-utils/releases/download/21.11.1/ngs-utils-21.11.1.zip
+#
+source_urls = [('https://github.com/molgenis/ngs-utils/releases/download/%s/' % (ngsutilsreleaseversion))]
+sources = [('ngs-utils-%s.zip' % (ngsutilsreleaseversion))]
+
+checksums = ['b37b4b284ff7e6dba8d10159a32a65d17540a8469b00ab354b406d29234610c5']
+
+dependencies = [ 
+    ('gVCF2BEDPyDepBundle','1.0.0' ,'-Python-3.10.4'),
+]
+
+postinstallcmds = [
+    'chmod -R 775 %(installdir)s/bin/*.py',
+]
+
+sanity_check_paths = {
+    'files': ['bin/gvcf2bed2.py', 'bin/group_per_gene.py'],
+    'dirs': []
+}
+
+modextrapaths = {'PATH': 'bin/'}
+
+modloadmsg = """
+===============================================================================
+Show usage:
+       gvcf2bed2.py --help
+
+===============================================================================
+"""
+
+
+moduleclass = 'bio'

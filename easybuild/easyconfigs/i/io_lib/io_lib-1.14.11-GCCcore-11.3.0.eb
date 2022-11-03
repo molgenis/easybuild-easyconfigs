@@ -1,0 +1,37 @@
+easyblock = 'ConfigureMake'
+
+name = 'io_lib'
+version = '1.14.11'
+
+homepage = 'http://sourceforge.net/projects/staden/files/io_lib/'
+description = """ io_lib """
+
+toolchain = {'name': 'GCCcore', 'version': '11.3.0'}
+
+source_urls = [('https://github.com/jkbonfield/%s/archive/' % (name))]
+sources = [('%s-%s.tar.gz' % (name, version.replace('.', '-')))]
+checksums = ['317aebf88f5b5d687e8165a68d2ed142f16dd5436fd530a24dbaa4acb5684051']
+
+#
+# The source distro does not contain a configure script out of the box:
+# Use tools from the Autotools module to create the configure script.
+#
+builddependencies = [
+    ('Autotools', '20220317'),
+    ('binutils', '2.38')
+]
+
+start_dir = '%s-%s-%s' % (name, name, version.replace('.', '-'))
+
+preconfigopts = 'autoreconf -f -i && chmod a+x configure && '
+
+files_to_copy = [
+    "bin", "lib", "include", "share"]
+
+sanity_check_paths = {
+    'files': ["bin/scramble", "bin/append_sff", "bin/ztr_dump"],
+    'dirs': [],
+}
+
+
+moduleclass = 'bio'
