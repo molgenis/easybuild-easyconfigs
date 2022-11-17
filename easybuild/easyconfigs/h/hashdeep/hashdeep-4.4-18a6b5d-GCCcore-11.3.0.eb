@@ -1,0 +1,53 @@
+name = 'hashdeep'
+
+homepage = 'https://github.com/jessek/hashdeep'
+description = """A set of tools to compute hashes (a.k.a. message digests) recursively for any number of files and directories."""
+_local_hashdeep_hash = '18a6b5d57f7a648d2b7dcc6e50ff00a1e4b05fcc'
+version = '4.4-' + _local_hashdeep_hash[0:7]
+
+easyblock = 'ConfigureMake'
+
+#
+# Select toolchain.
+#
+toolchain = {'name': 'GCCcore', 'version': '11.3.0'}
+
+#
+# Example URL:
+# https://github.com/jessek/hashdeep/archive/v4.4.tar.gz
+#
+#https://github.com/jessek/hashdeep/pull/385/commits/18a6b5d57f7a648d2b7dcc6e50ff00a1e4b05fcc
+
+sources = [
+{
+        'source_urls': ['https://github.com/jessek/%(name)s/archive/'],
+        'download_filename': '%s.tar.gz' % (_local_hashdeep_hash),
+        'filename': 'v%(version)s.tar.gz',
+}]
+
+checksums = ['d0381733241d4623296ccd9079448f09d87e066088523520ddd9a39753ab22d0']
+
+#
+# We do need Autotools in addition to  a toolchain @ compiletime.
+#
+builddependencies = [
+    ('Autotools', '20220317')
+]
+
+#
+# The source distro does not contain a configure script out of the box:
+# Execute autogen.sh, which calls various tools from the Autotools module to create the configure script.
+#
+preconfigopts = './bootstrap.sh && chmod a+x configure && '
+
+executables = [
+    'hashdeep', 'md5deep', 'sha1deep', 'sha256deep', 'tigerdeep', 'whirlpooldeep'
+]
+
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in executables] +
+             ['share/man/man1/%s.1' % x for x in executables],
+    'dirs': ['bin', 'share'],
+}
+
+moduleclass = 'tools'
