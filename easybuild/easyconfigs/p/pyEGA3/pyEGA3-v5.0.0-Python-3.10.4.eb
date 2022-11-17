@@ -1,0 +1,40 @@
+easyblock = 'PythonPackage'
+
+name = 'pyEGA3'
+version = 'v5.0.0'
+versionsuffix = '-Python-%(pyver)s'
+homepage = 'https://github.com/EGA-archive/ega-download-client'
+description = """A basic Python-based EGA download client"""
+
+toolchain = {'name': 'SYSTEM', 'version': ''}
+source_urls = ['https://test-files.pythonhosted.org/packages/e5/18/d36effb802952863646d8573f1c758763e3f1b70211a80f8521d3a38618d/']
+
+sources = [
+'%(name)s-%(version)s%(versionsuffix)s-requirements_hashes.txt',
+'pyega3-5.0.0.tar.gz'
+]
+checksums = [
+'0c44e18014f3eeb0fe32571ebe752167d304f2cf0d88ebfbc52139db727211e9',
+'1c79468cfc66a454364202d5865b663eb8a32c6ed4070929a5e3ddd6d38fbf8f'
+]
+
+pip_ignore_installed = False
+sanity_pip_check = True
+unpack_sources = False
+use_pip = True
+use_pip_for_deps = True
+use_pip_requirement = True
+installopts = '--require-hashes'
+
+
+dependencies = [
+    ('Python', '3.10.4', '-bare', ('GCCcore', '11.3.0')),
+]
+
+
+sanity_check_paths = {
+    'files': ['bin/pyega3'],
+    'dirs': ['bin'],
+}
+
+moduleclass = 'bio'

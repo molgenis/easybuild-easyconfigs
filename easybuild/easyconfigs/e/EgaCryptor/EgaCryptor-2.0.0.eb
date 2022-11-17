@@ -1,0 +1,23 @@
+name = 'EgaCryptor'
+version = '2.0.0'
+
+homepage = 'https://github.com/molgenis/ngs-utils'
+description = """Collection of notes and scripts related to NGS """
+
+toolchain = {'name': 'system', 'version': ''}
+easyblock = 'PackedBinary'
+
+#
+# Example URL: https://ega-archive.org/files/EgaCryptor.zip
+#
+source_urls = [('https://ega-archive.org/files/')]
+sources = [('%s.zip' % (name))]
+
+checksums = ['402d9d1d5de8beea416d3e8dc8e10c3fd1e7548e4d6e29d503afe1fcbe11ff8a']
+
+sanity_check_paths = {
+    'files': ['ega-cryptor-2.0.0.jar'],
+    'dirs': []
+}
+
+moduleclass = 'bio'
