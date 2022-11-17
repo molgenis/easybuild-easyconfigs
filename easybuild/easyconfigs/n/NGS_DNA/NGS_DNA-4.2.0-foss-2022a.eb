@@ -20,7 +20,7 @@ rver = '4.2.0'
 #
 source_urls = [('http://github.com/molgenis/%s/archive/' % (name))]
 sources = [('%s.tar.gz' % (version))]
-checksums = ['51904bbcf93d6da6630feec479412804d46879b1507de570ac023c9179e04f2e']
+checksums = ['08017ca2def7ddb8a0a270e9b7f79e1d1f4e4597f335f285ebc1027369d9492d']
 
 #
 # Dependencies.
