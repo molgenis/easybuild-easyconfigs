@@ -38,10 +38,10 @@ sources = [
         'filename': 'cadd_%(version)s_scripts.tgz',  
         'extract_cmd': 'tar -xzvf %s -C %(builddir)s/'
     },
-#    {
-#        'filename': 'annotations.tgz',
-#	'extract_cmd': 'cp %s %(builddir)s/'
-#    },
+    {
+        'filename': 'annotations.tgz',
+	'extract_cmd': 'cp %s %(builddir)s/'
+    },
     #
     # Overwrite the content of the annotations/primateWGA folder from annotation.tgz with the update from primateWGA_annoUpdate.tgz
     # and then move the annotations folder inside the main CADD folder.
@@ -61,10 +61,10 @@ sources = [
         'filename': 'InDels.tsv.gz',
         'extract_cmd': 'cp %s %(builddir)s/'
 	},
-#{
-#        'filename': 'whole_genome_SNVs.tsv.gz',
-#        'extract_cmd': 'cp %s %(builddir)s/'
-#	},
+{
+        'filename': 'whole_genome_SNVs.tsv.gz',
+        'extract_cmd': 'cp %s %(builddir)s/'
+	},
 {
         'filename': 'whole_genome_SNVs.tsv.gz.tbi',
         'extract_cmd': 'cp %s %(builddir)s/'
@@ -73,12 +73,12 @@ sources = [
 ]
 checksums = [
     '7d516829e89790d737b91bc5d8dd7c121e88341a32c74918f8df63175351d695', # cadd_v1.3_scripts.tgz
-#    'be070988a91b55e06ea63a5b02dcc09707eb090b3d9dc5ac6c5e6f350ffb875d', # annotations.tgz
+    'be070988a91b55e06ea63a5b02dcc09707eb090b3d9dc5ac6c5e6f350ffb875d', # annotations.tgz
     '65aa563cecfcbb441b73e20b09c0f3b91b84649b48f480fe6d1cb627c48eafe1', # primateWGA_annoUpdate.tgz
     'acda1a394915dc026b5ad73918a891ea2e2998e766b5c45cdc2c73bd13b75028', # InDels.tsv.gz.tbi
     'db94c45744b4133c2cf16c229a9e312cb302f9f6de5018e074a0509810e70df2', # InDels.tsv.gz
     '6df6e97ad92929c1d3e826b9d54d6936381a5981b1fce7198bc2db5c260eedd4', # whole_genome_SNVs.tsv.gz.tbi
- #   '1a43d532fcd97fa05f13a44f0fc86bc8d1531320090755f5a1640a93f6db9806', # whole_genome_SNVs.tsv.gz
+    '1a43d532fcd97fa05f13a44f0fc86bc8d1531320090755f5a1640a93f6db9806', # whole_genome_SNVs.tsv.gz
 ]
 
 #
