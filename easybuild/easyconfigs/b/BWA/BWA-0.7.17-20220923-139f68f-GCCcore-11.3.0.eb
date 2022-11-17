@@ -2,7 +2,7 @@ name = 'BWA'
 
 homepage = 'http://bio-bwa.sourceforge.net/'
 _local_bwa_hash = '139f68fc4c3747813783a488aef2adc86626b01b'
-version = '0.7.18-' + _local_bwa_hash[0:7]
+version = '0.7.17-20220923-' + _local_bwa_hash[0:7]
 
 description = """
  Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively

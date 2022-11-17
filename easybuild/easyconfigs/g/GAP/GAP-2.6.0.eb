@@ -5,7 +5,7 @@ namelower = name.lower()
 homepage = 'https://github.com/molgenis/GAP'
 description = """Genotyping Array pipeline used in the UMCG"""
 
-toolchain = {'name': 'SYSTEM', 'version': ''}
+toolchain = {'name': 'system', 'version': ''}
 easyblock = 'Tarball'
 
 #
@@ -25,9 +25,7 @@ dependencies = [
 ]
 
 modextrapaths = {
-
     'PATH': ["scripts"],
-
 }
 
 sanity_check_paths = {

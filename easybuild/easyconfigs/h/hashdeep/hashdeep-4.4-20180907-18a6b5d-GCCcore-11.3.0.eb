@@ -3,7 +3,7 @@ name = 'hashdeep'
 homepage = 'https://github.com/jessek/hashdeep'
 description = """A set of tools to compute hashes (a.k.a. message digests) recursively for any number of files and directories."""
 _local_hashdeep_hash = '18a6b5d57f7a648d2b7dcc6e50ff00a1e4b05fcc'
-version = '4.4-' + _local_hashdeep_hash[0:7]
+version = '4.4-20180907-' + _local_hashdeep_hash[0:7]
 
 easyblock = 'ConfigureMake'
 
